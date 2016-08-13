@@ -33,7 +33,13 @@ module SwaggerRackValidation
           when 'float' then CommonTypes::FLOAT
           when 'double' then CommonTypes::DOUBLE
           end
-        when 'string' then CommonTypes::STRING
+        when 'string'
+          return CommonTypes::STRING unless params['format']
+          case params['format'].downcase
+          when 'datetime' then CommonTypes::DATE_TIME
+          when 'date' then CommonTypes::DATE
+          else CommonTypes::STRING
+          end
         when 'boolean' then CommonTypes::BOOLEAN
         end
       end
