@@ -3,7 +3,7 @@ module SwaggerRackValidation
     module Parameters
       class StringValidator < BaseValidator
         def valid?
-          true
+          @value.class == String
         end
       end
     end
