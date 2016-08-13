@@ -3,7 +3,8 @@ module SwaggerRackValidation
     module Parameters
       class BooleanValidator < BaseValidator
         def valid?
-          true
+          return true if @value.class == TrueClass || @value.class == FalseClass
+          @value == 'true' || @value == 'false'
         end
       end
     end
