@@ -59,8 +59,19 @@ describe SwaggerRackValidation::Middleware::RequestValidation do
         it 'receive 200' do
           expect(last_response.status).to eq 200
         end
-        context 'number type paremeter' do
+        context 'integer type paremeter' do
           context 'receive string value' do
+            let(:params) do
+              {
+                'name' => 'string value',
+                'age' => 'string value',
+                'single' => false
+              }
+            end
+            it 'receive 400' do
+              expect(last_response.status).to eq 400
+              expect(JSON.parse(last_response.body)['id']).to eq 'invalid_parameter'
+            end
           end
         end
       end
