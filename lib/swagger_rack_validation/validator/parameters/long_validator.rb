@@ -2,7 +2,7 @@ module SwaggerRackValidation
   module Validator
     module Parameters
       class LongValidator < BaseValidator
-        def validate
+        def valid?
           true
         end
       end

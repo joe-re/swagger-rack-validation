@@ -1,7 +1,7 @@
 module SwaggerRackValidation
   module Validator
     module Parameters
-      class DoubleValidator < BaseValidator
+      class BooleanValidator < BaseValidator
         def valid?
           true
         end

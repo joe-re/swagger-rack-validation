@@ -46,13 +46,10 @@ module SwaggerRackValidation
           name = v['name']
           params = (@request.get? ? query_params : body)
           value = params[name]
-          if v['type'] == 'integer' || v['type'] == 'number'
-            if @request.get?
-              errors.push "Invalid request. #{v['name']} isn't #{v['type']}." unless /\A\d+\Z/ =~ value
-            else
-              errors.push "Invalid request. #{v['name']} isn't #{v['type']}." unless value.class == Fixnum
-            end
-          end
+          validator = SwaggerRackValidation::Validator::Factory.get(v, value)
+          next if validator.valid?
+          error = validator.error || "Invalid request. #{v['name']} isn't #{v['type']}."
+          errors.push error
         end
       end
     end

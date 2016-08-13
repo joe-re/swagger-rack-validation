@@ -31,7 +31,7 @@ describe SwaggerRackValidation::Middleware::RequestValidation do
           get '/persons', params
         end
 
-        context 'number type paremeter' do
+        context 'integer type paremeter' do
           context 'receive string value' do
             let(:params) { { 'size' => 'string' } }
             it 'receive 400' do

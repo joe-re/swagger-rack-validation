@@ -9,6 +9,8 @@ require 'swagger_rack_validation/validator/parameters/double_validator'
 require 'swagger_rack_validation/validator/parameters/float_validator'
 require 'swagger_rack_validation/validator/parameters/integer_validator'
 require 'swagger_rack_validation/validator/parameters/long_validator'
+require 'swagger_rack_validation/validator/parameters/string_validator'
+require 'swagger_rack_validation/validator/parameters/boolean_validator'
 require 'json'
 
 module SwaggerRackValidation

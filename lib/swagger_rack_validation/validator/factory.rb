@@ -33,6 +33,8 @@ module SwaggerRackValidation
           when 'float' then CommonTypes::FLOAT
           when 'double' then CommonTypes::DOUBLE
           end
+        when 'string' then CommonTypes::STRING
+        when 'boolean' then CommonTypes::BOOLEAN
         end
       end
     end
