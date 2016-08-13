@@ -3,7 +3,11 @@ module SwaggerRackValidation
     module Parameters
       class DoubleValidator < BaseValidator
         def valid?
+          Float(@value)
           true
+        rescue ArgumentError => e
+          @error = e.message
+          false
         end
       end
     end
