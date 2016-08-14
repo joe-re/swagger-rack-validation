@@ -23,6 +23,7 @@ module SwaggerRackValidation
       end
 
       def self.common_type(params)
+        return CommonTypes::SCHEMA if params['schema']
         case params['type'].downcase
         when 'integer'
           case params['format'].downcase
@@ -42,7 +43,6 @@ module SwaggerRackValidation
           else CommonTypes::STRING
           end
         when 'boolean' then CommonTypes::BOOLEAN
-        when 'schema' then CommonTypes::SCHEMA
         end
       end
     end
