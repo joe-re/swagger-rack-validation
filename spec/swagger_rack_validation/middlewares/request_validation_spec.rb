@@ -74,6 +74,18 @@ describe SwaggerRackValidation::Middleware::RequestValidation do
             end
           end
         end
+        context 'required param is missing' do
+          let(:params) do
+            {
+              'age' => 28,
+              'single' => false
+            }
+          end
+          it 'receive 400' do
+            expect(last_response.status).to eq 400
+            expect(JSON.parse(last_response.body)['id']).to eq 'invalid_parameter'
+          end
+        end
       end
     end
   end

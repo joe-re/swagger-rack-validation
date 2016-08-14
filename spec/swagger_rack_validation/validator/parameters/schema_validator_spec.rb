@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe SwaggerRackValidation::Validator::Parameters::SchemaValidator do
-  describe '#valid?' do
-    subject { SwaggerRackValidation::Validator::Parameters::SchemaValidator.new(value, params).valid? }
+  describe '#type_valid?' do
+    subject { SwaggerRackValidation::Validator::Parameters::SchemaValidator.new(value, params).type_valid? }
     let(:params) do
       {
         'type' => 'object',

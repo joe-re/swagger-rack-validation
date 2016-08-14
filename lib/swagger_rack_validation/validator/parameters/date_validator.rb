@@ -2,7 +2,7 @@ module SwaggerRackValidation
   module Validator
     module Parameters
       class DateValidator < BaseValidator
-        def valid?
+        def type_valid?
           Date.rfc3339 @value
           true
         rescue TypeError, ArgumentError => e

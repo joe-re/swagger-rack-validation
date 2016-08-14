@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe SwaggerRackValidation::Validator::Parameters::DoubleValidator do
-  describe '#valid?' do
-    subject { SwaggerRackValidation::Validator::Parameters::DoubleValidator.new(value, {}).valid? }
+  describe '#type_valid?' do
+    subject { SwaggerRackValidation::Validator::Parameters::DoubleValidator.new(value, {}).type_valid? }
 
     context 'value has decimal point' do
       let(:value) { 1.2 }

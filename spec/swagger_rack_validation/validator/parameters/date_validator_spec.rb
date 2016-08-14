@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe SwaggerRackValidation::Validator::Parameters::DateValidator do
-  describe '#valid?' do
-    subject { SwaggerRackValidation::Validator::Parameters::DateValidator.new(value, {}).valid? }
+  describe '#type_valid?' do
+    subject { SwaggerRackValidation::Validator::Parameters::DateValidator.new(value, {}).type_valid? }
 
     context 'value is numeric' do
       let(:value) { 1 }

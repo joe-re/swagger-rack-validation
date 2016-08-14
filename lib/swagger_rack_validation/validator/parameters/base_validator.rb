@@ -10,7 +10,18 @@ module SwaggerRackValidation
         end
 
         def valid?
-          raise 'need implementation'
+          return false if required? && @value.blank?
+          return true if @value.nil?
+          type_valid?
+        end
+
+        # need implementation on specific type validator
+        def type_valid?
+          true
+        end
+
+        def required?
+          !!@params['required']
         end
       end
     end

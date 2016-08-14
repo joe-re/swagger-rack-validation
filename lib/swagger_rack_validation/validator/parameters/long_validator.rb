@@ -2,7 +2,7 @@ module SwaggerRackValidation
   module Validator
     module Parameters
       class LongValidator < BaseValidator
-        def valid?
+        def type_valid?
           return false if @value.to_s =~ /\./
           v = Integer(@value)
           v >= - 2**63 && v <= 2**63 - 1
