@@ -12,13 +12,14 @@ module SwaggerRackValidation
       DATE = 'date'.freeze
       DATE_TIME = 'date_time'.freeze
       PASSWORD = 'password'.freeze
+      SCHEMA = 'schema'.freeze
     end
 
     class Factory
-      def self.get(params, value)
+      def self.get(value, params)
         type = common_type(params)
         raise 'Invalid type' unless type
-        (class_eval "Parameters::#{type.to_s.split('::').last.capitalize}Validator").new(value)
+        (class_eval "Parameters::#{type.to_s.split('::').last.capitalize}Validator").new(value, params)
       end
 
       def self.common_type(params)
@@ -41,6 +42,7 @@ module SwaggerRackValidation
           else CommonTypes::STRING
           end
         when 'boolean' then CommonTypes::BOOLEAN
+        when 'schema' then CommonTypes::SCHEMA
         end
       end
     end

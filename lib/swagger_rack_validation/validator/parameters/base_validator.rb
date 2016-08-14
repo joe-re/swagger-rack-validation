@@ -3,8 +3,9 @@ module SwaggerRackValidation
     module Parameters
       class BaseValidator
         attr_reader :error
-        def initialize(value)
+        def initialize(value, params)
           @value = value
+          @params = params
           @error = nil
         end
 

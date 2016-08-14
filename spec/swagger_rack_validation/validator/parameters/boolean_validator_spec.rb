@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SwaggerRackValidation::Validator::Parameters::BooleanValidator do
   describe '#valid?' do
-    subject { SwaggerRackValidation::Validator::Parameters::BooleanValidator.new(value).valid? }
+    subject { SwaggerRackValidation::Validator::Parameters::BooleanValidator.new(value, {}).valid? }
 
     context 'value is number' do
       let(:value) { 1 }

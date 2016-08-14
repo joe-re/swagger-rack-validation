@@ -1,4 +1,7 @@
 require 'date'
+require 'json'
+require 'json-schema'
+require 'json-ref'
 require 'swagger_rack_validation/version'
 require 'swagger_rack_validation/schema'
 require 'swagger_rack_validation/errors'
@@ -14,7 +17,7 @@ require 'swagger_rack_validation/validator/parameters/string_validator'
 require 'swagger_rack_validation/validator/parameters/boolean_validator'
 require 'swagger_rack_validation/validator/parameters/date_time_validator'
 require 'swagger_rack_validation/validator/parameters/date_validator'
-require 'json'
+require 'swagger_rack_validation/validator/parameters/schema_validator'
 
 module SwaggerRackValidation
 end

@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe SwaggerRackValidation::Validator::Parameters::LongValidator do
   describe '#valid?' do
-    subject {
-      SwaggerRackValidation::Validator::Parameters::LongValidator.new(value).valid?
-    }
+    subject { SwaggerRackValidation::Validator::Parameters::LongValidator.new(value, {}).valid? }
     context 'value is too small' do
       let(:value) { - 2**63 - 1 }
       it { is_expected.to be_falsy }

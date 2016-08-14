@@ -6,7 +6,8 @@ module SwaggerRackValidation
 
     def get(path, method)
       return nil if @hash['paths'].nil?
-      @hash['paths'][path.downcase] && @hash['paths'][path.downcase][method.downcase]
+      schema = @hash['paths'][path.downcase] && @hash['paths'][path.downcase][method.downcase]
+      JSONRef.new(schema).expand
     end
   end
 end

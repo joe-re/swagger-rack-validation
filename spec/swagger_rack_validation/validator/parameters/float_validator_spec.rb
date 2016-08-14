@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SwaggerRackValidation::Validator::Parameters::FloatValidator do
   describe '#valid?' do
-    subject { SwaggerRackValidation::Validator::Parameters::FloatValidator.new(value).valid? }
+    subject { SwaggerRackValidation::Validator::Parameters::FloatValidator.new(value, {}).valid? }
 
     context 'value has decimal point' do
       let(:value) { 1.2 }

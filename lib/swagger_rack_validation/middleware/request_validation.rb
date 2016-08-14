@@ -46,7 +46,7 @@ module SwaggerRackValidation
           name = v['name']
           params = (@request.get? ? query_params : body)
           value = params[name]
-          validator = SwaggerRackValidation::Validator::Factory.get(v, value)
+          validator = SwaggerRackValidation::Validator::Factory.get(value, v)
           next if validator.valid?
           error = validator.error || "Invalid request. #{v['name']} isn't #{v['type']}."
           errors.push error

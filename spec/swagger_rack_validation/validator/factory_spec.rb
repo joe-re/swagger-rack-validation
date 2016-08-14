@@ -12,7 +12,7 @@ describe SwaggerRackValidation::Validator::Factory do
         'format' => format
       }
     end
-    subject { described_class.get(params, nil) }
+    subject { described_class.get(nil, params) }
     [
       { type: 'integer', format: 'int32', validator: SwaggerRackValidation::Validator::Parameters::IntegerValidator },
       { type: 'integer', format: 'int64', validator: SwaggerRackValidation::Validator::Parameters::LongValidator },
